@@ -1,0 +1,141 @@
+name: 🐞 Bug Report
+description: Something is broken or not behaving as expected.
+title: "[BUG] <short summary>"
+type: "Bug"
+labels: ["bug 🐛"]
+projects: "27Works/7"
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The single most useful thing you can give us is **a URL where we can see it happening**.
+        A screenshot tells us what it looked like; a URL tells us what it *is*.
+
+  - type: input
+    id: description
+    attributes:
+      label: What's broken?
+      description: One clear sentence.
+      placeholder: 'e.g. "Clicking Save on a page draft throws a 500 and the draft is lost."'
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: 🔗 Where? (URL)
+      description: >-
+        The page or endpoint where this happens — live or staging. If it isn't reachable by
+        URL, say where it is instead (an admin screen, a scheduled job, an email).
+      placeholder: https://staging.example.com/admin/pages/42/edit
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Which environment?
+      options:
+        - Production
+        - Staging
+        - Local / development
+        - Not sure
+    validations:
+      required: true
+
+  - type: input
+    id: tenant
+    attributes:
+      label: Which client / tenant / site?
+      description: >-
+        Essential for anything multi-tenant. If it affects more than one, list them — and if
+        you know it affects *all* of them, say so, because that changes the priority.
+      placeholder: 'e.g. Morgan Motor Company — or "all tenants"'
+    validations:
+      required: false
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: How bad is it?
+      description: Your honest read. A developer may disagree, and that's fine.
+      options:
+        - Blocking — a client cannot work, or data is at risk
+        - Serious — a core flow is broken, no reasonable workaround
+        - Annoying — there's a workaround, but it's wrong
+        - Cosmetic — it looks wrong, but it works
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: >-
+        Numbered, from a known starting point. Include which account or role you were logged
+        in as — a lot of bugs only exist for one role.
+      placeholder: |
+        1. Log in to https://staging.example.com as an Editor
+        2. Open any page draft
+        3. Change the title, click Save
+        4. See the error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should have happened?
+      placeholder: 'e.g. "The draft saves and a confirmation appears."'
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: What actually happened?
+      description: >-
+        Include the exact error text if there is one — paste it, don't paraphrase it, and
+        don't screenshot it. We can search text.
+      placeholder: 'e.g. "500 Internal Server Error. Console shows: TypeError: cannot read properties of undefined (reading ''slug'')"'
+    validations:
+      required: true
+
+  - type: dropdown
+    id: reproducible
+    attributes:
+      label: Does it happen every time?
+      description: Intermittent bugs are handled very differently to consistent ones — worth being honest here.
+      options:
+        - Every time
+        - Most times
+        - Occasionally / can't pin it down
+        - Happened once, haven't retried
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Anything else?
+      description: >-
+        Browser and OS **if you think they're relevant** (they usually aren't for backend
+        bugs). When it started. What changed recently. Workarounds you've tried. Logs.
+      placeholder: |
+        - Started after Tuesday's deploy
+        - Only seems to affect pages with a hero image
+        - Safari 17 on macOS — haven't tried Chrome
+    validations:
+      required: false
+
+  - type: textarea
+    id: documents
+    attributes:
+      label: 📎 Screenshots, recordings, logs
+      description: >-
+        Supporting evidence only — not a substitute for the URL and steps above. If you link
+        a cloud document, **check the developers can open it**.
+    validations:
+      required: false

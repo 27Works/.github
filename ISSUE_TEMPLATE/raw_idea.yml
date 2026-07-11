@@ -1,0 +1,57 @@
+name: 💡 Raw Idea (we'll write it up for you)
+description: Describe a feature, request or change in your own words. Claude will draft a properly structured issue for you to review.
+title: "<short summary of the idea>"
+labels: ["needs-drafting"]
+projects: "27Works/7"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this when you know **what you want** but not how to write it up.
+
+        Say it however you'd say it out loud. Within a minute or two, Claude will post a
+        comment containing a drafted Purpose, Acceptance Criteria, Out of scope, and a list
+        of things it had to assume or couldn't work out.
+
+        **You still own the issue.** Read the draft, fix what's wrong, answer the open
+        questions, then apply the `spec-approved` label. Nothing goes to a developer until
+        you do.
+
+  - type: textarea
+    id: raw
+    attributes:
+      label: 💬 What do you want?
+      description: >-
+        Plain English. Don't worry about format, completeness, or jargon.
+        Rambling is fine — more detail is better than less.
+      placeholder: |
+        e.g. "Clients keep emailing us asking how much of their AI allowance they've used
+        this month. It'd be good if they could just see it themselves somewhere in the
+        dashboard, and maybe get a warning before they run out."
+    validations:
+      required: true
+
+  - type: textarea
+    id: links
+    attributes:
+      label: 🔗 Anything to look at?
+      description: >-
+        Links to pages, Figma frames, docs, or the email thread that prompted this.
+        URLs are far more useful than screenshots. Check sharing permissions.
+      placeholder: |
+        - https://staging.example.com/dashboard
+        - Figma: Caruuto > Dashboard > Usage
+    validations:
+      required: false
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Is this roughly...
+      description: A rough steer only — Claude will second-guess you if it disagrees.
+      options:
+        - A small change or improvement
+        - A new feature
+        - Not sure / could be big
+    validations:
+      required: true

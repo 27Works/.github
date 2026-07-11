@@ -1,0 +1,34 @@
+name: Draft issue
+
+# Copy this file to .github/workflows/draft-issue.yml in any repo that should
+# use the drafter. It is the only file the repo needs — the skill, the guides
+# and the logic all live in 27Works/issue-drafter.
+
+on:
+  issues:
+    types: [opened, labeled]
+
+permissions:
+  issues: write
+
+concurrency:
+  group: draft-issue-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  draft:
+    # Fire when an issue is opened carrying `needs-drafting` (the Raw Idea template
+    # applies it automatically), or when someone hand-applies the label later.
+    # Never fire for a bot — otherwise our own comment can re-trigger us.
+    if: >-
+      github.event.sender.type != 'Bot' &&
+      (
+        (github.event.action == 'opened' && contains(github.event.issue.labels.*.name, 'needs-drafting')) ||
+        (github.event.action == 'labeled' && github.event.label.name == 'needs-drafting')
+      )
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: 27Works/issue-drafter@v1
+        with:
+          anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}

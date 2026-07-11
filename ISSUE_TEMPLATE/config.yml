@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 A guide to writing issues
+    url: https://github.com/orgs/27Works/discussions/13
+    about: How we write clear, outcome-focused issues and epics. Read this before your first ticket.
+  - name: ✅ What is (and isn't) acceptance criteria
+    url: https://github.com/27Works/issue-drafter/blob/main/docs/acceptance-criteria-guide.md
+    about: The definition of done, and the five things that are never acceptance criteria.

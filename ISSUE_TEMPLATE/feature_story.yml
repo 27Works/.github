@@ -1,0 +1,91 @@
+name: 🚀 Feature / Story
+description: A single, well-understood outcome, ready to be specified. Not sure what you want yet? Use "Raw Idea" instead.
+title: "<title>"
+type: "Feature"
+projects: "27Works/7"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Use this when you already know what "done" looks like.**
+
+        If you have an idea but can't yet write testable acceptance criteria, don't force it —
+        file a **💡 Raw Idea** instead and Claude will draft this for you.
+
+  - type: textarea
+    id: purpose
+    attributes:
+      label: 🎯 Purpose
+      description: >-
+        Use the "In order to..." format — outcome first, deliverable second.
+        Example: "In order to reduce cognitive load for customers browsing retailers,
+        we need to add a country filter to the retailer list."
+      placeholder: "In order to [outcome], we need to [deliverable/change]."
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: ✅ Acceptance Criteria
+      description: >-
+        The conditions a developer can verify **without asking anyone** to confirm this is
+        done. Testable, scoped, specific, self-contained.
+
+
+        Not AC: investigative tasks ("determine whether..."), assumed standards (responsive,
+        accessible, fast, clean code), wishlist statements ("looks good", "feels smooth",
+        "matches Figma appropriately"), work not implied by the Purpose, or a restatement of
+        the Purpose.
+      placeholder: |
+        - [ ] Selecting a country updates both the list and the visible map pins to that country's retailers.
+        - [ ] The default option is "All countries".
+        - [ ] When no retailers exist for the selected country, the list shows "No retailers found for this country."
+    validations:
+      required: true
+
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: 🚫 Out of scope
+      description: >-
+        Things a reader might reasonably *assume* are included, but which are deliberately
+        excluded. Cheap to write, and saves an argument later.
+      placeholder: |
+        - Filtering by region or city (country only, for now)
+        - Persisting the selected filter between visits
+    validations:
+      required: false
+
+  - type: textarea
+    id: supporting-links
+    attributes:
+      label: 🔗 Supporting Links
+      description: >-
+        URLs to staging/live pages — **preferred over screenshots**, since a URL gives the
+        developer the full context. Link the exact Figma frame, not the file.
+        **Check sharing permissions:** if a developer can't open it, this issue is blocked.
+      placeholder: |
+        - https://staging.example.com/feature
+        - Figma: 1771 > Retailer Locator > Filters (check access)
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: 🗒️ Notes (optional)
+      description: Extra context, clarifications or reminders.
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ### 🍔 Final tips
+        - GitHub is the **source of truth**. This issue must say exactly what you want delivered.
+        - If anything changes in Slack or on a call, **update this issue immediately**.
+        - Keep it atomic — one issue, one outcome. More than one outcome? Use an **Epic** with sub-issues.
+        - Link this to its parent Epic via the **Relationships** sidebar.
+        - Add **Labels** before saving. (Type and Project are set for you.)
+        - Don't assign it — a developer will self-assign when work begins.
