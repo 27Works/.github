@@ -1,0 +1,45 @@
+name: 🗂 Epic
+description: High-level feature containing multiple related issues
+title: "[EPIC]: "
+type: "Epic"
+projects: "27Works/7"
+body:
+  - type: textarea
+    id: purpose
+    attributes:
+      label: 🎯 Purpose
+      description: >-
+        Use the "In order to..." format to explain the high-level outcome.
+        Example: "In order to offer 1771 Memberships as a premium product, we need a dedicated membership page that communicates exclusivity and benefits and enables purchase through Stripe."
+      placeholder: "In order to [high-level outcome], we need to deliver [feature/initiative]."
+    validations:
+      required: true
+
+  - type: textarea
+    id: success-criteria
+    attributes:
+      label: 📝 Success Criteria
+      description: What outcomes define this Epic as complete? (High-level, measurable goals.)
+      placeholder: |
+        - [ ] Outcome 1
+        - [ ] Outcome 2
+        - [ ] Outcome 3
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        #### 📌 Sub-issues
+        Create these using the Feature/Story template, and link them to this Epic.
+
+  - type: textarea
+    id: supporting-links
+    attributes:
+      label: 🔗 Supporting Links
+      description: URLs to requirements, strategy documents, or design prototypes. Ensure permissions are set correctly.
+      placeholder: |
+        - https://figma.com/file/XYZ
+        - https://staging.example.com/epic-feature
+    validations:
+      required: false
